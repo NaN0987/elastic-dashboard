@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   animations: ^2.0.7
+  audioplayers: 5.2.1
   collection: ^1.17.1
   decimal: ^2.3.3
   dot_cast: ^1.2.0
@@ -64,6 +65,7 @@ flutter:
   assets:
     - assets/logos/
     - assets/fields/
+    - assets/audio/one_minute_remaining.mp3
 
 import_sorter:
   comments: false

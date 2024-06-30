@@ -16,6 +16,7 @@ import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/radial_gauge.d
 import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/single_color_view.dart';
 import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/text_display.dart';
 import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/toggle_button.dart';
+import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/toggle_thing.dart';
 import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/toggle_switch.dart';
 import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/voltage_view.dart';
 
@@ -102,6 +103,7 @@ class NTWidgetModel extends ChangeNotifier {
           BooleanBox.widgetType,
           ToggleSwitch.widgetType,
           ToggleButton.widgetType,
+          ToggleThing.widgetType,
           TextDisplay.widgetType,
         ];
       case NT4TypeStr.kFloat32:
