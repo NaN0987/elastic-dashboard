@@ -9,9 +9,15 @@ import 'package:elastic_dashboard/widgets/dialog_widgets/dialog_dropdown_chooser
 import 'package:elastic_dashboard/widgets/dialog_widgets/dialog_text_input.dart';
 import 'package:elastic_dashboard/widgets/nt_widgets/nt_widget.dart';
 
+import 'package:audioplayers/audioplayers.dart';
+
 class MatchTimeModel extends NTWidgetModel {
   @override
   String type = MatchTimeWidget.widgetType;
+
+  double? previousValue;
+
+  final AudioPlayer player = AudioPlayer();
 
   String _timeDisplayMode = 'Minutes and Seconds';
 
@@ -182,6 +188,32 @@ class MatchTimeWidget extends NTWidget {
       builder: (context, snapshot) {
         double time = tryCast(snapshot.data) ?? -1.0;
         time = time.floorToDouble();
+
+        // Code for managing sound:
+        if ((model.previousValue != null)) {
+
+          double prevTime = tryCast(model.previousValue)!;
+
+          if ((prevTime > time)) {
+            if ((prevTime > 0) && (time <= 0)) {
+              model.player.play(AssetSource("audio/game_over.mp3"));
+            }
+
+            else if ((prevTime > 60) && (time <= 60)) {
+              model.player.play(AssetSource("audio/one_minute_remaining.mp3"));
+            }
+
+            else if ((prevTime > 30) && (time <= 30)) {
+              model.player.play(AssetSource("audio/thirty_seconds_remaining.mp3"));
+            }
+
+            else if ((prevTime > 10) && (time <= 10)) {
+              model.player.play(AssetSource("audio/ten_seconds_remaining.mp3"));
+            }
+          }
+        }
+
+        model.previousValue = time;
 
         String timeDisplayString;
         if (model.timeDisplayMode == 'Minutes and Seconds' && time >= 0) {

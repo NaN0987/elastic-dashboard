@@ -1,4 +1,4 @@
-import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/toggle_thing.dart';
+import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/sound_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dot_cast/dot_cast.dart';
@@ -184,7 +184,7 @@ class NTWidgetBuilder {
       TextDisplay.widgetType: TextDisplay.new,
       'Text View': TextDisplay.new,
       ToggleButton.widgetType: ToggleButton.new,
-      ToggleThing.widgetType: ToggleThing.new,
+      SoundButton.widgetType: SoundButton.new,
       ToggleSwitch.widgetType: ToggleSwitch.new,
       VoltageView.widgetType: VoltageView.new,
     });

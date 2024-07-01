@@ -65,7 +65,7 @@ flutter:
   assets:
     - assets/logos/
     - assets/fields/
-    - assets/audio/one_minute_remaining.mp3
+    - assets/audio/
 
 import_sorter:
   comments: false

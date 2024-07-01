@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:dot_cast/dot_cast.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elastic_dashboard/services/nt_connection.dart';
@@ -8,16 +7,11 @@ import 'package:elastic_dashboard/widgets/nt_widgets/nt_widget.dart';
 
 import 'package:audioplayers/audioplayers.dart';
 
-class ToggleThing extends NTWidget {
-  static const String widgetType = 'Toggle Thing';
+class SoundButton extends NTWidget {
+  static const String widgetType = 'Sound Button';
+  final AudioPlayer _player = AudioPlayer(); // NOTE: One audioplayer means that the sound can only be played once at a time
 
-  const ToggleThing({super.key}) : super();
-
-  // Function for playing sound
-  void _playSound() {
-    final AudioPlayer player = AudioPlayer();
-    player.play(AssetSource('audio/one_minute_remaining.mp3'));
-  }
+  SoundButton({super.key}) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +21,7 @@ class ToggleThing extends NTWidget {
         stream: model.subscription?.periodicStream(yieldAll: false),
         initialData: ntConnection.getLastAnnouncedValue(model.topic),
         builder: (context, snapshot) {
-          bool value = tryCast(snapshot.data) ?? false;
+          // bool value = tryCast(snapshot.data) ?? false;
 
           String buttonText =
               model.topic.substring(model.topic.lastIndexOf('/') + 1);
@@ -38,6 +32,7 @@ class ToggleThing extends NTWidget {
 
           return GestureDetector(
             onTapUp: (_) {
+              //Checks if the topic needs to be published
               bool publishTopic = model.ntTopic == null ||
                   !ntConnection.isTopicPublished(model.ntTopic);
 
@@ -51,10 +46,10 @@ class ToggleThing extends NTWidget {
                 ntConnection.nt4Client.publishTopic(model.ntTopic!);
               }
 
-              ntConnection.updateDataFromTopic(model.ntTopic!, !value);
+              // ntConnection.updateDataFromTopic(model.ntTopic!, !value);
 
               // Play sound when clicked
-              _playSound();
+              _player.play(AssetSource('audio/one_minute_remaining.mp3'));
             },
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -74,9 +69,7 @@ class ToggleThing extends NTWidget {
                       color: Colors.black,
                     ),
                   ],
-                  color: (value)
-                      ? theme.colorScheme.primaryContainer
-                      : const Color.fromARGB(255, 50, 50, 50),
+                  color: const Color.fromARGB(255, 50, 50, 50),
                 ),
                 child: Center(
                     child: Text(
