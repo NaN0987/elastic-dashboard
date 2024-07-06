@@ -549,8 +549,14 @@ class TabGrid extends StatelessWidget {
       tryCast(widgetData['width']) ?? 0.0,
       tryCast(widgetData['height']) ?? 0.0,
     );
+
+    // NOTE: this only gets rid of the error message and does not address the issue
+    if (widgetData['layout'] == null){
+      return;
+    }
+
     // If the widget is already in the tab, don't add it
-    if (!widgetData['layout']) {
+    if (!(widgetData['layout'])) { // Errors here
       for (NTWidgetContainerModel container
           in _widgetModels.whereType<NTWidgetContainerModel>()) {
         String? title = container.title;

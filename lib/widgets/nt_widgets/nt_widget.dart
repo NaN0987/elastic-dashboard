@@ -1,3 +1,4 @@
+import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/simple_sound.dart';
 import 'package:flutter/material.dart';
 
 import 'package:collection/collection.dart';
@@ -111,6 +112,7 @@ class NTWidgetModel extends ChangeNotifier {
       case NT4TypeStr.kInt:
         return [
           TextDisplay.widgetType,
+          SimpleSound.widgetType,
           NumberBar.widgetType,
           NumberSlider.widgetType,
           VoltageView.widgetType,

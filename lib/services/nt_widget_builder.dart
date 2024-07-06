@@ -1,3 +1,5 @@
+import 'package:elastic_dashboard/widgets/nt_widgets/multi-topic/sound_widget.dart';
+import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/simple_sound.dart';
 import 'package:elastic_dashboard/widgets/nt_widgets/single_topic/sound_button.dart';
 import 'package:flutter/material.dart';
 
@@ -77,6 +79,7 @@ class NTWidgetBuilder {
 
     logger.info('Configuring NT Widget Builder');
 
+    // Name build map part 1
     _modelNameBuildMap.addAll({
       BooleanBox.widgetType: BooleanBoxModel.new,
       GraphWidget.widgetType: GraphModel.new,
@@ -85,11 +88,13 @@ class NTWidgetBuilder {
       NumberSlider.widgetType: NumberSliderModel.new,
       RadialGauge.widgetType: RadialGaugeModel.new,
       'Simple Dial': RadialGaugeModel.new,
+      SimpleSound.widgetType: SimpleSoundModel.new,
       TextDisplay.widgetType: TextDisplayModel.new,
       'Text View': TextDisplayModel.new,
       VoltageView.widgetType: VoltageViewModel.new,
     });
 
+    // part 2
     _modelNameBuildMap.addAll({
       AccelerometerWidget.widgetType: AccelerometerModel.new,
       SwerveDriveWidget.widgetType: BasicSwerveModel.new,
@@ -98,6 +103,7 @@ class NTWidgetBuilder {
       'String Chooser': ComboBoxChooserModel.new,
       CommandSchedulerWidget.widgetType: CommandSchedulerModel.new,
       CommandWidget.widgetType: CommandModel.new,
+      SoundWidget.widgetType: SoundWidgetModel.new,
       DifferentialDrive.widgetType: DifferentialDriveModel.new,
       'Differential Drivebase': DifferentialDriveModel.new,
       EncoderWidget.widgetType: EncoderModel.new,
@@ -124,6 +130,7 @@ class NTWidgetBuilder {
       YAGSLSwerveDrive.widgetType: YAGSLSwerveDriveModel.new,
     });
 
+    // Json Build Map part 1
     _modelJsonBuildMap.addAll({
       BooleanBox.widgetType: BooleanBoxModel.fromJson,
       GraphWidget.widgetType: GraphModel.fromJson,
@@ -132,11 +139,13 @@ class NTWidgetBuilder {
       NumberSlider.widgetType: NumberSliderModel.fromJson,
       RadialGauge.widgetType: RadialGaugeModel.fromJson,
       'Simple Dial': RadialGaugeModel.fromJson,
+      SimpleSound.widgetType: SimpleSoundModel.fromJson,
       TextDisplay.widgetType: TextDisplayModel.fromJson,
       'Text View': TextDisplayModel.fromJson,
       VoltageView.widgetType: VoltageViewModel.fromJson,
     });
 
+    // part 2
     _modelJsonBuildMap.addAll({
       AccelerometerWidget.widgetType: AccelerometerModel.fromJson,
       SwerveDriveWidget.widgetType: BasicSwerveModel.fromJson,
@@ -144,6 +153,7 @@ class NTWidgetBuilder {
       ComboBoxChooser.widgetType: ComboBoxChooserModel.fromJson,
       CommandSchedulerWidget.widgetType: CommandSchedulerModel.fromJson,
       CommandWidget.widgetType: CommandModel.fromJson,
+      SoundWidget.widgetType: SoundWidgetModel.fromJson,
       DifferentialDrive.widgetType: DifferentialDriveModel.fromJson,
       'Differential Drivebase': DifferentialDriveModel.fromJson,
       EncoderWidget.widgetType: EncoderModel.fromJson,
@@ -180,6 +190,7 @@ class NTWidgetBuilder {
       NumberBar.widgetType: NumberBar.new,
       NumberSlider.widgetType: NumberSlider.new,
       RadialGauge.widgetType: RadialGauge.new,
+      SimpleSound.widgetType: SimpleSound.new,
       SingleColorView.widgetType: SingleColorView.new,
       TextDisplay.widgetType: TextDisplay.new,
       'Text View': TextDisplay.new,
@@ -189,6 +200,7 @@ class NTWidgetBuilder {
       VoltageView.widgetType: VoltageView.new,
     });
 
+    // Part 2
     _widgetNameBuildMap.addAll({
       AccelerometerWidget.widgetType: AccelerometerWidget.new,
       CameraStreamWidget.widgetType: CameraStreamWidget.new,
@@ -196,6 +208,7 @@ class NTWidgetBuilder {
       'String Chooser': ComboBoxChooser.new,
       CommandSchedulerWidget.widgetType: CommandSchedulerWidget.new,
       CommandWidget.widgetType: CommandWidget.new,
+      SoundWidget.widgetType: SoundWidget.new,
       DifferentialDrive.widgetType: DifferentialDrive.new,
       'Differential Drivebase': DifferentialDrive.new,
       EncoderWidget.widgetType: EncoderWidget.new,
@@ -227,7 +240,7 @@ class NTWidgetBuilder {
     _minimumWidthMap.addAll({
       CameraStreamWidget.widgetType: _normalSize * 2,
       CommandSchedulerWidget.widgetType: _normalSize * 2,
-      CommandWidget.widgetType: _normalSize * 2,
+      //CommandWidget.widgetType: _normalSize * 2,
       DifferentialDrive.widgetType: _normalSize * 2,
       EncoderWidget.widgetType: _normalSize * 2,
       FieldWidget.widgetType: _normalSize * 3,
