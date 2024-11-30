@@ -14,7 +14,7 @@ import 'dart:io';
 //import 'package:path_provider/path_provider.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-class SoundWidgetModel extends NTWidgetModel {
+class SoundWidgetModel extends MultiTopicNTWidgetModel {
   @override
   String type = SoundWidget.widgetType;
 

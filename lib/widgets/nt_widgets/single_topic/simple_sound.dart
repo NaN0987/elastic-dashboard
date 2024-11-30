@@ -15,7 +15,7 @@ import 'package:elastic_dashboard/widgets/nt_widgets/nt_widget.dart';
 
 import 'package:audioplayers/audioplayers.dart';
 
-class SimpleSoundModel extends NTWidgetModel {
+class SimpleSoundModel extends SingleTopicNTWidgetModel {
   @override
   String type = SimpleSound.widgetType;
 
