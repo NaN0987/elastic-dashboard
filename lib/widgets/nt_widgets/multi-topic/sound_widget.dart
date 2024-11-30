@@ -27,6 +27,8 @@ class SoundWidgetModel extends NTWidgetModel {
   Object? previousIncrement;
   Object? previousLoop;
 
+  String? userDirectory;
+
   String? directoryPath;
 
   SoundWidgetModel({required super.topic, super.dataType, super.period}) : super();
