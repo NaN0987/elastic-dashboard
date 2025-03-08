@@ -116,6 +116,7 @@ class BooleanBoxModel extends SingleTopicNTWidgetModel {
     _falseIcon = tryCast(jsonData['false_icon']) ?? 'None';
   }
 
+  // Hi
   @override
   Map<String, dynamic> toJson() {
     return {
